@@ -1,0 +1,11 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Data & Environment files
+.env
+data/
+*.pdf
