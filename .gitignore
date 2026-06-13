@@ -9,3 +9,7 @@ __pycache__/
 .env
 data/
 *.pdf
+
+# Frontend node modules
+frontend/node_modules/
+frontend/dist/
