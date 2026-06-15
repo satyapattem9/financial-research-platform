@@ -1,6 +1,7 @@
 import os
 import psycopg
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from google import genai
 from google.genai import types
@@ -10,6 +11,14 @@ load_dotenv()
 
 app = FastAPI(title="Financial Research Platform API")
 ai_client = genai.Client()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows your React dev server (port 5173) to connect
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows POST, GET, OPTIONS, etc.
+    allow_headers=["*"],
+)
 
 class QueryRequest(BaseModel):
     question: str
